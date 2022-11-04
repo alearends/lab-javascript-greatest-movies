@@ -4,25 +4,33 @@
 //     return moviesArray.map((moviesArray) => moviesArray.director); 
 // }
 
-let directorsMap = function getAllDirectors (pepe){
-    return pepe.map((el) => el.director);
+function getAllDirectors (pelis){
+    return pelis.map((el) => el.director);
 };
 
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
 // How could you "clean" a bit this array and make it unified (without duplicates)?
 
-let directorsMapArr = new map(directorsMap);
+// let directorsMap = function getAllDirectors (pelis){
+//     return pelis.map((el) => el.director);
+// };
 
-let unicos = [...directorsMapArr.values()];
-return unicos;
+// let directorsMapArr = new map(directorsMap);
+
+// let unicos = [...directorsMapArr.values()];
+// return unicos;
 
 
 // function getAllDirectors(moviesArray) {}
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
 // function howManyMovies(moviesArray) {}
-function howManyMovies(pepe) {
-    
+function howManyMovies(pelis) {
+    return pelis.filter((el) => {
+    const stevenSpielberg = el.director === "Steven Spielberg"; 
+    const dramaMovie = el.genre.includes("Drama");
+    return stevenSpielberg && dramaMovie;
+    }).length;
 }
 
 
